@@ -129,7 +129,7 @@ EOTEXT
       $identity_json = phutil_json_encode($identity_data);
 
       $identity_future = id(new HTTPSFuture($identity_uri, $identity_json))
-        ->setMethod('POST')
+        ->setMethod('GET')
         ->addHeader('Content-Type', 'application/json')
         ->addHeader('Accept', 'application/json')
         ->addHeader('Authorization', "Bearer {$gitlab_api_token}")
