@@ -120,7 +120,7 @@ EOTEXT
     $author_identity = $engine->getAuthorIdentity();
     if ($author_identity) {
       $identity_uri = urisprintf(
-        'https://%s/api/v4/users',
+        'https://%s/api/v4/users?search=%s',
         $gitlab_host,
         $author_identity->getIdentityEmailAddress());
 
