@@ -121,16 +121,11 @@ EOTEXT
     if ($author_identity) {
       $identity_uri = urisprintf(
         'https://%s/api/v4/users',
-        $gitlab_host);
+        $gitlab_host,
+        $author_identity->getIdentityEmailAddress());
 
-      $identity_data = array(
-        "search" => $author_identity->getIdentityEmailAddress()
-      );
-      $identity_json = phutil_json_encode($identity_data);
-
-      $identity_future = id(new HTTPSFuture($identity_uri, $identity_json))
+      $identity_future = id(new HTTPSFuture($identity_uri))
         ->setMethod('GET')
-        ->addHeader('Content-Type', 'application/json')
         ->addHeader('Accept', 'application/json')
         ->addHeader('Authorization', "Bearer {$gitlab_api_token}")
         ->setTimeout(60);
@@ -225,7 +220,7 @@ EOTEXT
     $pipeline_response = phutil_json_decode($pipeline_body);
 
     $uri_key = 'web_url';
-    $build_uri = idx($response, $uri_key);
+    $build_uri = idx($pipeline_response, $uri_key);
     if (!$build_uri) {
       throw new Exception(
         pht(
