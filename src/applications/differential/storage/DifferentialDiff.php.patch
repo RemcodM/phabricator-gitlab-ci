@@ -1,0 +1,24 @@
+--- phabricator/src/applications/differential/storage/DifferentialDiff.php	2020-06-29 09:16:29.000000000 +0200
++++ src/applications/differential/storage/DifferentialDiff.php	2020-06-29 11:23:32.000000000 +0200
+@@ -8,6 +8,7 @@
+     HarbormasterBuildableInterface,
+     HarbormasterCircleCIBuildableInterface,
+     HarbormasterBuildkiteBuildableInterface,
++    HarbormasterGitLabCIBuildableInterface,
+     PhabricatorApplicationTransactionInterface,
+     PhabricatorDestructibleInterface,
+     PhabricatorConduitResultInterface {
+@@ -652,6 +653,13 @@
+   }
+ 
+ 
++/* -(  HarbormasterBuildkiteBuildableInterface  )---------------------------- */
++
++  public function getGitLabCIRef() {
++    return $this->getStagingRef();
++  }
++
++
+   public function getStagingRef() {
+     // TODO: We're just hoping to get lucky. Instead, `arc` should store
+     // where it sent changes and we should only provide staging details

@@ -1,0 +1,7 @@
+src/__phutil_library_map__.php
+src/applications/differential/storage/DifferentialDiff.php
+src/applications/harbormaster/application/PhabricatorHarbormasterApplication.php
+src/applications/harbormaster/controller/HarbormasterGitLabCIHookController.php
+src/applications/harbormaster/interface/HarbormasterGitLabCIBuildableInterface.php
+src/applications/harbormaster/step/HarbormasterGitLabCIBuildStepImplementation.php
+src/applications/repository/storage/PhabricatorRepositoryCommit.php

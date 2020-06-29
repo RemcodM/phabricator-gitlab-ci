@@ -1,0 +1,3 @@
+[submodule "phabricator"]
+	path = phabricator
+	url = git@github.com:phacility/phabricator.git

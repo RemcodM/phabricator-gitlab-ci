@@ -1,0 +1,10 @@
+--- phabricator/src/applications/harbormaster/application/PhabricatorHarbormasterApplication.php	2020-06-29 09:16:29.000000000 +0200
++++ src/applications/harbormaster/application/PhabricatorHarbormasterApplication.php	2020-06-29 09:34:03.000000000 +0200
+@@ -97,6 +97,7 @@
+         'hook/' => array(
+           'circleci/' => 'HarbormasterCircleCIHookController',
+           'buildkite/' => 'HarbormasterBuildkiteHookController',
++          'gitlabci/' => 'HarbormasterGitLabCIHookController',
+         ),
+         'log/' => array(
+           'view/(?P<id>\d+)/(?:\$(?P<lines>\d+(?:-\d+)?))?'

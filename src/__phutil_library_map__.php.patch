@@ -1,0 +1,12 @@
+--- phabricator/src/__phutil_library_map__.php	2020-06-29 09:16:28.000000000 +0200
++++ src/__phutil_library_map__.php	2020-06-29 11:32:51.000000000 +0200
+@@ -1476,6 +1476,9 @@
+     'HarbormasterExecFuture' => 'applications/harbormaster/future/HarbormasterExecFuture.php',
+     'HarbormasterExternalBuildStepGroup' => 'applications/harbormaster/stepgroup/HarbormasterExternalBuildStepGroup.php',
+     'HarbormasterFileArtifact' => 'applications/harbormaster/artifact/HarbormasterFileArtifact.php',
++    'HarbormasterGitLabCIBuildStepImplementation' => 'applications/harbormaster/step/HarbormasterGitLabCIBuildStepImplementation.php',
++    'HarbormasterGitLabCIBuildableInterface' => 'applications/harbormaster/interface/HarbormasterGitLabCIBuildableInterface.php',
++    'HarbormasterGitLabCIHookController' => 'applications/harbormaster/controller/HarbormasterGitLabCIHookController.php',
+     'HarbormasterHTTPRequestBuildStepImplementation' => 'applications/harbormaster/step/HarbormasterHTTPRequestBuildStepImplementation.php',
+     'HarbormasterHostArtifact' => 'applications/harbormaster/artifact/HarbormasterHostArtifact.php',
+     'HarbormasterLeaseWorkingCopyBuildStepImplementation' => 'applications/harbormaster/step/HarbormasterLeaseWorkingCopyBuildStepImplementation.php',

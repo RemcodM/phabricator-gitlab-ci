@@ -1,0 +1,64 @@
+--- phabricator/src/applications/repository/storage/PhabricatorRepositoryCommit.php	2020-06-29 09:16:29.000000000 +0200
++++ src/applications/repository/storage/PhabricatorRepositoryCommit.php	2020-06-29 11:25:16.000000000 +0200
+@@ -12,6 +12,7 @@
+     HarbormasterBuildableInterface,
+     HarbormasterCircleCIBuildableInterface,
+     HarbormasterBuildkiteBuildableInterface,
++    HarbormasterGitLabCIBuildableInterface,
+     PhabricatorCustomFieldInterface,
+     PhabricatorApplicationTransactionInterface,
+     PhabricatorTimelineInterface,
+@@ -705,6 +706,53 @@
+   }
+ 
+ 
++/* -(  HarbormasterGitLabCIBuildableInterface  )---------------------------- */
++
++
++public function getGitLabCIRef() {
++  $viewer = PhabricatorUser::getOmnipotentUser();
++  $repository = $this->getRepository();
++
++  $commit_phid = $this->getPHID();
++  $repository_phid = $repository->getPHID();
++
++  if ($repository->isHosted()) {
++    throw new Exception(
++      pht(
++        'This commit ("%s") is associated with a hosted repository '.
++        '("%s"). Repositories must be imported from GitLab to be built '.
++        'with GitLab CI.',
++        $commit_phid,
++        $repository_phid));
++  }
++
++  $branches = DiffusionQuery::callConduitWithDiffusionRequest(
++    $viewer,
++    DiffusionRequest::newFromDictionary(
++      array(
++        'repository' => $repository,
++        'user' => $viewer,
++      )),
++    'diffusion.branchquery',
++    array(
++      'contains' => $this->getCommitIdentifier(),
++      'repository' => $repository->getPHID(),
++    ));
++
++  if (!$branches) {
++    throw new Exception(
++      pht(
++        'Commit "%s" is not an ancestor of any branch head, so it can not '.
++        'be built with GitLab CI.',
++        $this->getCommitIdentifier()));
++  }
++
++  $branch = head($branches);
++
++  return 'refs/heads/'.$branch['shortName'];
++}
++
++
+ /* -(  PhabricatorCustomFieldInterface  )------------------------------------ */
+ 
+ 
