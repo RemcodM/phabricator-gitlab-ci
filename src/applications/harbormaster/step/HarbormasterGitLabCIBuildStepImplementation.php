@@ -40,6 +40,13 @@ To build **commits** with GitLab CI, they must:
   - you must configure a GitLab CI pipeline for that repository; and
   - you must configure the webhook described below.
 
+API Token
+=========
+
+Please use an API token with `sudo` and `api` scopes. `sudo` allows Harbormaster to
+run the build as the user who created the commit/differential.
+
+
 Webhook Configuration
 =====================
 
