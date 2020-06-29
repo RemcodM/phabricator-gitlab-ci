@@ -95,7 +95,7 @@ final class HarbormasterGitLabCIHookController
           $target_phid));
     }
 
-    switch ($state) {
+    switch ($status) {
       case 'running':
         $message_type = HarbormasterMessageType::MESSAGE_WORK;
         break;
