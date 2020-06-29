@@ -1,5 +1,5 @@
 --- phabricator/src/__phutil_library_map__.php	2020-06-29 09:16:28.000000000 +0200
-+++ src/__phutil_library_map__.php	2020-06-29 11:32:51.000000000 +0200
++++ src/__phutil_library_map__.php	2020-06-29 13:27:11.000000000 +0200
 @@ -1476,6 +1476,9 @@
      'HarbormasterExecFuture' => 'applications/harbormaster/future/HarbormasterExecFuture.php',
      'HarbormasterExternalBuildStepGroup' => 'applications/harbormaster/stepgroup/HarbormasterExternalBuildStepGroup.php',
@@ -10,3 +10,28 @@
      'HarbormasterHTTPRequestBuildStepImplementation' => 'applications/harbormaster/step/HarbormasterHTTPRequestBuildStepImplementation.php',
      'HarbormasterHostArtifact' => 'applications/harbormaster/artifact/HarbormasterHostArtifact.php',
      'HarbormasterLeaseWorkingCopyBuildStepImplementation' => 'applications/harbormaster/step/HarbormasterLeaseWorkingCopyBuildStepImplementation.php',
+@@ -6571,6 +6574,7 @@
+       'HarbormasterBuildableInterface',
+       'HarbormasterCircleCIBuildableInterface',
+       'HarbormasterBuildkiteBuildableInterface',
++      'HarbormasterGitLabCIBuildableInterface',
+       'PhabricatorApplicationTransactionInterface',
+       'PhabricatorDestructibleInterface',
+       'PhabricatorConduitResultInterface',
+@@ -7682,6 +7686,8 @@
+     'HarbormasterExecFuture' => 'Future',
+     'HarbormasterExternalBuildStepGroup' => 'HarbormasterBuildStepGroup',
+     'HarbormasterFileArtifact' => 'HarbormasterArtifact',
++    'HarbormasterGitLabCIBuildStepImplementation' => 'HarbormasterBuildStepImplementation',
++    'HarbormasterGitLabCIHookController' => 'HarbormasterController',
+     'HarbormasterHTTPRequestBuildStepImplementation' => 'HarbormasterBuildStepImplementation',
+     'HarbormasterHostArtifact' => 'HarbormasterDrydockLeaseArtifact',
+     'HarbormasterLeaseWorkingCopyBuildStepImplementation' => 'HarbormasterBuildStepImplementation',
+@@ -11242,6 +11248,7 @@
+       'HarbormasterBuildableInterface',
+       'HarbormasterCircleCIBuildableInterface',
+       'HarbormasterBuildkiteBuildableInterface',
++      'HarbormasterGitLabCIBuildableInterface',
+       'PhabricatorCustomFieldInterface',
+       'PhabricatorApplicationTransactionInterface',
+       'PhabricatorTimelineInterface',
